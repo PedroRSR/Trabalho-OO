@@ -1,5 +1,7 @@
 package Menus;
 
+import javax.swing.JOptionPane;
+
 import Entidades.Pessoas.Professor;
 import Servicos.CadastroUsuario;
 
@@ -15,7 +17,7 @@ public class MenuProfessores {
         int opcao = -1;
         
         do {
-            String strOpcao = javax.swing.JOptionPane.showInputDialog(opcoes);
+            String strOpcao = JOptionPane.showInputDialog(opcoes);
             opcao = Integer.parseInt(strOpcao);
         
             switch (opcao) {
@@ -28,7 +30,7 @@ public class MenuProfessores {
                 case 0:
                     break;
                 default:
-                    javax.swing.JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente.");
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente.");
                     break;
             }
         } while (opcao != 0);
@@ -45,13 +47,13 @@ public class MenuProfessores {
     }
 
     public static Professor criarProfessor() {
-        String nome = javax.swing.JOptionPane.showInputDialog("Informe seu nome completo:");
-        String email = javax.swing.JOptionPane.showInputDialog("Informe seu email:");
-        String telefone = javax.swing.JOptionPane.showInputDialog("Informe seu telefone:");
-        String senha = javax.swing.JOptionPane.showInputDialog("Informe sua senha:");
-        int matricula = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Informe sua matrícula institucional:"));
-        String cargoAcademico = javax.swing.JOptionPane.showInputDialog("Informe seu cargo acadêmico:");
-        String curso = javax.swing.JOptionPane.showInputDialog("Informe a curso que leciona:");
+        String nome = JOptionPane.showInputDialog("Informe seu nome completo:");
+        String email = JOptionPane.showInputDialog("Informe seu email:");
+        String telefone = JOptionPane.showInputDialog("Informe seu telefone:");
+        String senha = JOptionPane.showInputDialog("Informe sua senha:");
+        int matricula = Integer.parseInt(JOptionPane.showInputDialog("Informe sua matrícula institucional:"));
+        String cargoAcademico = JOptionPane.showInputDialog("Informe seu cargo acadêmico:");
+        String curso = JOptionPane.showInputDialog("Informe a curso que leciona:");
         
         return new Professor(nome, email, telefone, senha, matricula, cargoAcademico, curso);
     }

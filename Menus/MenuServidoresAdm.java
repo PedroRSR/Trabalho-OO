@@ -1,5 +1,7 @@
 package Menus;
 
+import javax.swing.JOptionPane;
+
 import Entidades.Pessoas.Administrativo;
 import Servicos.CadastroUsuario;
 
@@ -15,7 +17,7 @@ public class MenuServidoresAdm {
         int opcao = -1;
         
         do {
-            String strOpcao = javax.swing.JOptionPane.showInputDialog(opcoes);
+            String strOpcao = JOptionPane.showInputDialog(opcoes);
             opcao = Integer.parseInt(strOpcao);
         
             switch (opcao) {
@@ -28,7 +30,7 @@ public class MenuServidoresAdm {
                 case 0:
                     break;
                 default:
-                    javax.swing.JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente.");
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente.");
                     break;
             }
         } while (opcao != 0);
@@ -45,13 +47,13 @@ public class MenuServidoresAdm {
     }
 
     public static Administrativo criarServidor() {
-        String nome = javax.swing.JOptionPane.showInputDialog("Informe seu nome completo:");
-        String email = javax.swing.JOptionPane.showInputDialog("Informe seu email:");
-        String telefone = javax.swing.JOptionPane.showInputDialog("Informe seu telefone:");
-        String senha = javax.swing.JOptionPane.showInputDialog("Informe sua senha:");
-        int matricula = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Informe sua matrícula institucional:"));
-        String cargoAdministrativo = javax.swing.JOptionPane.showInputDialog("Informe seu cargo administrativo:");
-        String departamento = javax.swing.JOptionPane.showInputDialog("Informe a departamento que leciona:");
+        String nome = JOptionPane.showInputDialog("Informe seu nome completo:");
+        String email = JOptionPane.showInputDialog("Informe seu email:");
+        String telefone = JOptionPane.showInputDialog("Informe seu telefone:");
+        String senha = JOptionPane.showInputDialog("Informe sua senha:");
+        int matricula = Integer.parseInt(JOptionPane.showInputDialog("Informe sua matrícula institucional:"));
+        String cargoAdministrativo = JOptionPane.showInputDialog("Informe seu cargo administrativo:");
+        String departamento = JOptionPane.showInputDialog("Informe a departamento que leciona:");
         
         return new Administrativo(nome, email, telefone, senha, matricula, cargoAdministrativo, departamento);
     }

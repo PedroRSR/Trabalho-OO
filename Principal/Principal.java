@@ -4,9 +4,12 @@ import Menus.MenuAlunos;
 import Menus.MenuPrincipal;
 import Menus.MenuProfessores;
 import Menus.MenuServidoresAdm;
+import Servicos.CadastroUsuario;
 
 public class Principal {
+    static CadastroUsuario cadastroUsuario;
     public static void main(String[] args) {
+        cadastroUsuario = new CadastroUsuario();
 
         int opcao = 0;
 
@@ -30,6 +33,7 @@ public class Principal {
                     break;
                 default:
                     javax.swing.JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente.");
+                    opcao = -1;
                     break;
             }
         } while (opcao != 0);

@@ -1,5 +1,7 @@
 package Menus;
 
+import javax.swing.JOptionPane;
+
 import Entidades.Pessoas.Aluno;
 import Servicos.CadastroUsuario;
 
@@ -15,12 +17,13 @@ public class MenuAlunos {
         int opcao = -1;
 
         do {
-            String strOpcao = javax.swing.JOptionPane.showInputDialog(opcoes);
+            String strOpcao = JOptionPane.showInputDialog(opcoes);
             opcao = Integer.parseInt(strOpcao);
 
             switch (opcao) {
                 case 1:
                     cadastrarAluno();
+
                     break;
                 case 2:
                     reservarEspacoFisico();
@@ -28,7 +31,7 @@ public class MenuAlunos {
                 case 0:
                     break;
                 default:
-                    javax.swing.JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente.");
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente.");
             }
         } while (opcao != 0); 
         
@@ -44,13 +47,13 @@ public class MenuAlunos {
     }
 
     private static Aluno criarAluno() {
-        String nome = javax.swing.JOptionPane.showInputDialog("Informe seu nome completo:");
-        String email = javax.swing.JOptionPane.showInputDialog("Informe seu email:");
-        String telefone = javax.swing.JOptionPane.showInputDialog("Informe seu telefone:");
-        String senha = javax.swing.JOptionPane.showInputDialog("Informe sua senha:");
-        String curso = javax.swing.JOptionPane.showInputDialog("Informe seu curso:");
-        int matricula = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Informe sua matrícula:"));
-        int semMatricula = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Informe seu semestre de matrícula:"));
+        String nome = JOptionPane.showInputDialog("Informe seu nome completo:");
+        String email = JOptionPane.showInputDialog("Informe seu email:");
+        String telefone = JOptionPane.showInputDialog("Informe seu telefone:");
+        String senha = JOptionPane.showInputDialog("Informe sua senha:");
+        String curso = JOptionPane.showInputDialog("Informe seu curso:");
+        int matricula = Integer.parseInt(JOptionPane.showInputDialog("Informe sua matrícula:"));
+        int semMatricula = Integer.parseInt(JOptionPane.showInputDialog("Informe seu semestre de matrícula:"));
         return new Aluno(nome, email, telefone, senha, curso, matricula, semMatricula);
     }
 }
