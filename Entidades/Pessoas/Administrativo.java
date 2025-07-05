@@ -1,8 +1,8 @@
-package Entidades;
+package Entidades.Pessoas;
 
 public class Administrativo extends Servidor {
-    String cargoAdministrativo;
-    String departamento;
+    private String cargoAdministrativo;
+    private String departamento;
 
     public Administrativo(String nome, String email, String telefone, String senha, int matriculaInstitucional, String cargoAdministrativo, String departamento) {
         super(nome, email, telefone, senha, matriculaInstitucional);

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import Entidades.Usuario;
+import Entidades.Pessoas.Usuario;
 import Servicos.Cadastro;
 import Servicos.CadastroAluno;
 import Servicos.CadastroProfessor;

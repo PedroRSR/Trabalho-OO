@@ -1,4 +1,5 @@
-package Entidades;
+package Entidades.Pessoas;
+
 public abstract class Servidor extends Usuario {
     private int matriculaInstitucional;
 

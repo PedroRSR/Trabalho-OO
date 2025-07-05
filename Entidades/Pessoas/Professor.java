@@ -1,8 +1,8 @@
-package Entidades;
+package Entidades.Pessoas;
 
 public class Professor extends Servidor {
-    String cargoAcademico,
-           curso;
+    private String cargoAcademico,
+                   curso;
 
     public Professor(String nome, String email, String telefone, String senha, int matriculaInstitucional, String cargoAcademico, String curso) {
         super(nome, email, telefone, senha, matriculaInstitucional);

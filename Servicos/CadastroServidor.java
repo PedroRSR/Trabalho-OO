@@ -2,8 +2,8 @@ package Servicos;
 
 import java.util.List;
 
-import Entidades.Administrativo;
-import Entidades.Usuario;
+import Entidades.Pessoas.Administrativo;
+import Entidades.Pessoas.Usuario;
 
 public class CadastroServidor extends Cadastro {
 

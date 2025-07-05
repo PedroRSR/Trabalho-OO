@@ -1,4 +1,5 @@
-package Entidades;
+package Entidades.Pessoas;
+
 public class Usuario {
     private String nomeCompleto,
                    email,

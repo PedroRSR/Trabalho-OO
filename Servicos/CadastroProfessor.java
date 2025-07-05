@@ -2,8 +2,8 @@ package Servicos;
 
 import java.util.List;
 
-import Entidades.Professor;
-import Entidades.Usuario;
+import Entidades.Pessoas.Professor;
+import Entidades.Pessoas.Usuario;
 
 public class CadastroProfessor extends Cadastro {
     

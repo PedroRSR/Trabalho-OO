@@ -3,7 +3,7 @@ package Servicos;
 import java.util.List;
 import java.util.Scanner;
 
-import Entidades.Usuario;
+import Entidades.Pessoas.Usuario;
 
 public abstract class Cadastro {
     static Scanner sc = new Scanner(System.in);
