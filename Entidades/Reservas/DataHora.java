@@ -1,15 +1,22 @@
 package Entidades.Reservas;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class DataHora {
-    private LocalDateTime dataHora;
+    private LocalDate data;
+    private LocalTime hora;
 
-    public DataHora(LocalDateTime dataHora) {
-        this.dataHora = dataHora;
+    public DataHora(LocalDate data, LocalTime hora) {
+        this.data = data;
+        this.hora = hora;
     }
 
-    public LocalDateTime getDataHora() {
-        return dataHora;
+    public LocalDate getData() {
+        return data;
+    }
+
+    public LocalTime getHora() {
+        return hora;
     }
 }
