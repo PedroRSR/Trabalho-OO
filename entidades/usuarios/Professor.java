@@ -13,6 +13,11 @@ public class Professor extends Usuario {
         this.matriculaInstitucional = matriculaInstitucional;
     }
 
+    public String getMatriculaInstitucional()
+    {
+        return matriculaInstitucional;
+    }
+    
     public String getCargo() 
     {
         return cargo;

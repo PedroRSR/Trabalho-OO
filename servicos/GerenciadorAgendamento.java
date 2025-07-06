@@ -21,24 +21,25 @@ public class GerenciadorAgendamento {
     public void agendar(Usuario usuario, EspacoFisico espaco, LocalDateTime dataInicio, LocalDateTime dataFim)
             throws HorarioIndisponivelException, DiasExcedidosException {
 
-        // Verifica regras de dias para aluno
-        if (usuario instanceof entidades.usuarios.Aluno) {
+        // verifica regras de dias para aluno
+        if (usuario instanceof entidades.usuarios.Aluno) 
+        {
             if (!dataInicio.equals(dataFim)) {
                 throw new DiasExcedidosException("Aluno só pode reservar por um dia");
             }
         }
 
-        // Verifica conflito de horário
+        // verifica conflito de horário
         for (Agendamento ag : agendamentos) {
-            if (ag.getEspaco().equals(espaco)) {
-                // Verifica se os períodos se sobrepõem
+            if (ag.getEspaco().equals(espaco)) 
+            {
                 if (!(dataFim.isBefore(ag.getDataInicio()) || dataInicio.isAfter(ag.getDataFim()))) {
                     throw new HorarioIndisponivelException("O espaço já está reservado neste período");
                 }
             }
         }
 
-        // Se passou nas validações, cria o agendamento
+        // se passou nas validações, cria o agendamento
         Agendamento novoAgendamento = new Agendamento(usuario, espaco, dataInicio, dataFim);
         agendamentos.add(novoAgendamento);
     }

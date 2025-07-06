@@ -23,21 +23,103 @@ public class Principal {
 
     public static void main(String[] args) {
         while (true) {
-            String[] opcoes = { "Cadastrar Usuário", "Cadastrar Espaço Físico", "Fazer Agendamento", "Gerar Relatórios", "Sair" };
-            int escolha = JOptionPane.showOptionDialog(null, "Selecione uma opção:", "Menu Principal",
+            String[] opcoes = { "Gerenciar Usuários", "Gerenciar Espaços Físicos", "Fazer Agendamento", "Gerar Relatórios", "Sair" };
+            int escolha = JOptionPane.showOptionDialog(null, "Selecione uma área para gerenciar:", "Menu Principal",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoes, opcoes[0]);
 
-            if (escolha == 0) {
-                cadastrarUsuario();
-            } else if (escolha == 1) {
-                cadastrarEspacoFisico();
-            } else if (escolha == 2) {
-                fazerAgendamento();
-            } else if (escolha == 3) {
-                gerarRelatorios();
-            } else {
-                break;
+            switch (escolha) {
+                case 0:
+                    gerenciarUsuarios(); // chama o sub-menu de usuários
+                    break;
+                case 1:
+                    cadastrarEspacoFisico();
+                    break;
+                case 2:
+                    fazerAgendamento();
+                    break;
+                case 3:
+                    gerarRelatorios();
+                    break;
+                default: // caso o usuário feche a janela ou clique em Sair
+                    System.exit(0);
+                    return;
             }
+        }
+    }
+
+    private static void gerenciarUsuarios() {
+        String[] opcoes = { "Cadastrar Novo Usuário", "Buscar Usuário", "Deletar Usuário", "Voltar" };
+        int escolha = JOptionPane.showOptionDialog(null, "O que deseja fazer?", "Gerenciamento de Usuários",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoes, opcoes[0]);
+
+        switch (escolha) {
+            case 0:
+                cadastrarUsuario();
+                break;
+            case 1:
+                buscarUsuario();
+                break;
+            case 2:
+                deletarUsuario();
+                break;
+            default:
+                return;
+        }
+    }
+
+    private static void buscarUsuario() {
+
+        String[] opcoesBusca = { "Buscar por Matrícula", "Buscar por Email" };
+        int escolha = JOptionPane.showOptionDialog(null, "Como você deseja buscar o usuário?", "Critério de Busca",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoesBusca, opcoesBusca[0]);
+
+        if (escolha == -1) return; // Usuário fechou a janela
+
+        Usuario encontrado = null;
+        GerenciadorUsuarios gerenciador = new GerenciadorUsuarios(usuarios);
+
+        try {
+            if (escolha == 0) { // Busca por Matrícula
+                String matricula = JOptionPane.showInputDialog("Digite a matrícula do usuário:");
+                if (matricula == null || matricula.trim().isEmpty()) return;
+                
+                // Chama o serviço para buscar pela matrícula
+                encontrado = gerenciador.buscarPorMatricula(matricula);
+
+            } else { // Busca por Email
+                String email = JOptionPane.showInputDialog("Digite o email do usuário:");
+                if (email == null || email.trim().isEmpty()) return;
+
+                // Chama o serviço para buscar pelo email
+                encontrado = gerenciador.buscarPorEmail(email);
+            }
+
+            // se o try foi bem sucedido
+            StringBuilder info = new StringBuilder("--- Usuário Encontrado ---\n\n");
+            info.append("Nome: ").append(encontrado.getNome()).append("\n");
+            info.append("Email: ").append(encontrado.getEmail()).append("\n");
+            info.append("Telefone: ").append(encontrado.getTelefone()).append("\n");
+            info.append("Tipo: ").append(encontrado.getTipoUsuario()).append("\n");
+
+            // informações especificas
+            if (encontrado instanceof Aluno) {
+                Aluno aluno = (Aluno) encontrado;
+                info.append("Matrícula do Aluno: ").append(aluno.getMatricula()).append("\n");
+                info.append("Curso: ").append(aluno.getCurso()).append("\n");
+            } else if (encontrado instanceof Professor) {
+                Professor prof = (Professor) encontrado;
+                info.append("Matrícula Institucional: ").append(prof.getMatriculaInstitucional()).append("\n");
+                info.append("Cargo: ").append(prof.getCargo()).append("\n");
+            } else if (encontrado instanceof ServidorAdministrativo) {
+                ServidorAdministrativo adm = (ServidorAdministrativo) encontrado;
+                info.append("Cargo: ").append(adm.getCargoAdministrativo()).append("\n");
+                info.append("Departamento: ").append(adm.getDepartamento()).append("\n");
+            }
+
+            JOptionPane.showMessageDialog(null, info.toString(), "Detalhes do Usuário", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (UsuarioNaoEncontradoException e) {
+            JOptionPane.showMessageDialog(null, "Erro na busca: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -147,23 +229,13 @@ public class Principal {
                 return;
             }
 
-            String nomeUsuario = JOptionPane.showInputDialog("Digite o nome completo do usuário que vai agendar:");
-            if (nomeUsuario == null) return;
+            
+            String emailUsuario = JOptionPane.showInputDialog("Digite o EMAIL do usuário que vai agendar:");
+            if (emailUsuario == null) return;
 
-            Usuario usuario = null;
-            for (Usuario u : usuarios) 
-            {
-                if (u.getNome().equalsIgnoreCase(nomeUsuario)) {
-                    usuario = u;
-                    break;
-                }
-            }
-
-            if (usuario == null) 
-            {
-                JOptionPane.showMessageDialog(null, "Usuário não encontrado.");
-                return;
-            }
+            
+            GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios(usuarios);
+            Usuario usuario = gerenciadorUsuarios.buscarPorEmail(emailUsuario);
 
             String nomeEspaco = JOptionPane.showInputDialog("Digite o nome do espaço físico para agendar:");
             if (nomeEspaco == null) return;
@@ -196,10 +268,39 @@ public class Principal {
             gerenciadorAgendamento.agendar(usuario, espaco, dataInicio, dataFim);
             JOptionPane.showMessageDialog(null, "Agendamento realizado com sucesso!");
 
+        } catch (UsuarioNaoEncontradoException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao buscar usuário: " + e.getMessage());
         } catch (DiasExcedidosException | HorarioIndisponivelException e) {
             JOptionPane.showMessageDialog(null, "Erro no agendamento: " + e.getMessage());
         } catch (DateTimeParseException e) {
-            JOptionPane.showMessageDialog(null, "Data inválida. Use o formato AAAA-MM-DD.");
+            JOptionPane.showMessageDialog(null, "Data inválida. Use o formato AAAA-MM-DD HH:mm.");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro inesperado: " + e.getMessage());
+        }
+    }
+
+    private static void deletarUsuario() {
+        try {
+            String matricula = JOptionPane.showInputDialog("Digite a matrícula do usuário a ser DELETADO:");
+            if (matricula == null || matricula.trim().isEmpty()) {
+                return;
+            }
+
+            GerenciadorUsuarios gerenciador = new GerenciadorUsuarios(usuarios);
+
+            int confirmacao = JOptionPane.showConfirmDialog(null, 
+                "Tem certeza que deseja deletar o usuário com matrícula " + matricula + "?\nEsta ação não pode ser desfeita.", 
+                "Confirmar Exclusão", 
+                JOptionPane.YES_NO_OPTION, 
+                JOptionPane.WARNING_MESSAGE);
+
+            if (confirmacao == JOptionPane.YES_OPTION) {
+                gerenciador.deletarPorMatricula(matricula);
+                JOptionPane.showMessageDialog(null, "Usuário deletado com sucesso!");
+            }
+
+        } catch (UsuarioNaoEncontradoException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao deletar: " + e.getMessage());
         }
     }
 
@@ -271,8 +372,8 @@ public class Principal {
             if (dataInicioStr == null || dataFimStr == null) return;
 
             try {
-                LocalDate dataInicio = LocalDate.parse(dataInicioStr);
-                LocalDate dataFim = LocalDate.parse(dataFimStr);
+                LocalDateTime dataInicio = LocalDateTime.parse(dataInicioStr);
+                LocalDateTime dataFim = LocalDateTime.parse(dataFimStr);
 
                 List<Agendamento> lista = geradorRelatorios.relatorioPorEspaco(espaco, dataInicio, dataFim);
                 if (lista.isEmpty()) 
@@ -293,7 +394,7 @@ public class Principal {
                     JOptionPane.showMessageDialog(null, sb.toString());
                 }
             } catch (DateTimeParseException e) {
-                JOptionPane.showMessageDialog(null, "Data inválida. Use o formato AAAA-MM-DD.");
+                JOptionPane.showMessageDialog(null, "Data inválida. Use o formato AAAA-MM-DD HH:mm.");
             }
         }
     }

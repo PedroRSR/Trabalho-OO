@@ -1,6 +1,6 @@
 package servicos;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class GeradorRelatorios {
         return resultado;
     }
 
-    public List<Agendamento> relatorioPorEspaco(EspacoFisico espaco, LocalDate inicio, LocalDate fim) {
+    public List<Agendamento> relatorioPorEspaco(EspacoFisico espaco, LocalDateTime inicio, LocalDateTime fim) {
         List<Agendamento> resultado = new ArrayList<>();
         for (Agendamento ag : agendamentos) {
             if (ag.getEspaco().equals(espaco)
