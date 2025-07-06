@@ -1,4 +1,4 @@
-package Entidades.espacos;
+package entidades.espacos;
 
 import java.util.List;
 
