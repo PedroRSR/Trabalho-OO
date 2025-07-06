@@ -23,4 +23,9 @@ public class Aluno extends Usuario{
     public int getSemMatricula() {
         return semMatricula;
     }
+
+    @Override
+    public String getTipoUsuario() {
+        return "Aluno";
+    }
 }

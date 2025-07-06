@@ -1,10 +1,10 @@
 package entidades.pessoas;
 
-public class Usuario {
-    private String nomeCompleto,
-                   email,
-                   telefone,
-                   senha;
+public abstract class Usuario {
+    protected String nomeCompleto,
+                     email,
+                     telefone,
+                     senha;
 
     public Usuario(String nome, String email, String telefone, String senha) {
         this.nomeCompleto = nome;
@@ -28,4 +28,6 @@ public class Usuario {
     public String getSenha() {
         return senha;
     }
+    
+    public abstract String getTipoUsuario();
 }

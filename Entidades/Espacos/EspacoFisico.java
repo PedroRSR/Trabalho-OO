@@ -1,20 +1,18 @@
 package entidades.espacos;
 
-import entidades.Agendamento;
+import java.util.List;
 
-public class EspacoFisico {
-    private int idEspaco,
-                capacidade;
-    private String localizacao;
-    private Equipamento[] equipamentos;
-    private Agendamento[] agendamentos;
+public abstract class EspacoFisico {
+    protected int idEspaco;
+    protected int capacidade;
+    protected String localizacao;
+    protected List<String> equipamentos;
 
-    public EspacoFisico(int idEspaco, int capacidade, String localizacao, Equipamento[] equipamentos, Agendamento[] agendamentos) {
+    public EspacoFisico(int idEspaco, int capacidade, String localizacao, List<String> equipamentos) {
         this.idEspaco = idEspaco;
         this.capacidade = capacidade;
         this.localizacao = localizacao;
         this.equipamentos = equipamentos;
-        this.agendamentos = agendamentos;
     }
 
     public int getIdEspaco() {
@@ -29,17 +27,10 @@ public class EspacoFisico {
         return localizacao;
     }
     
-    public Equipamento[] getEquipamentos() {
+    public List<String> getEquipamentos() {
         return equipamentos;
     }
 
-    public Agendamento[] getAgendamentos() {
-        return agendamentos;
-    }
-
-    public boolean estaDisponivel() {
-        // Implementar lógica para verificar disponibilidade
-        return true; // Placeholder, deve ser substituído pela lógica real
-    }
+    public abstract String getTipoEspaco();
 
 }

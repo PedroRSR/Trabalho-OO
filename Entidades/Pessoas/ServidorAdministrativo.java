@@ -1,10 +1,10 @@
 package entidades.pessoas;
 
-public class Administrativo extends Servidor {
-    private String cargoAdministrativo;
-    private String departamento;
+public class ServidorAdministrativo extends Servidor {
+    private String cargoAdministrativo,
+                   departamento;
 
-    public Administrativo(String nome, String email, String telefone, String senha, int matriculaInstitucional, String cargoAdministrativo, String departamento) {
+    public ServidorAdministrativo(String nome, String email, String telefone, String senha, int matriculaInstitucional, String cargoAdministrativo, String departamento) {
         super(nome, email, telefone, senha, matriculaInstitucional);
         this.cargoAdministrativo = cargoAdministrativo;
         this.departamento = departamento;
@@ -22,4 +22,8 @@ public class Administrativo extends Servidor {
         return departamento;
     }
     
+    @Override
+    public String getTipoUsuario() {
+        return "Servidor Administrativo";
+    }
 }

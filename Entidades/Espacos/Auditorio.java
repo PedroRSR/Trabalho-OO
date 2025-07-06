@@ -1,11 +1,13 @@
 package entidades.espacos;
 
-import entidades.Agendamento;
+import java.util.List;
 
 public class Auditorio extends EspacoFisico {
 
-    Auditorio(int idEspaco, int capacidade, String localizacao, Equipamento[] equipamentos, Agendamento[] agendamentos) {
-        super(idEspaco, capacidade, localizacao, equipamentos, agendamentos);
+    Auditorio(int idEspaco, int capacidade, String localizacao, List<String> equipamentos) {
+        super(idEspaco, capacidade, localizacao, equipamentos);
     }
     
+    @Override
+    public String getTipoEspaco() { return "Auditório"; }
 }

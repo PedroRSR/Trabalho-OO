@@ -1,11 +1,15 @@
 package entidades.espacos;
 
-import entidades.Agendamento;
+import java.util.List;
 
 public class SalaDeAula extends EspacoFisico {
 
-    SalaDeAula(int idEspaco, int capacidade, String localizacao, Equipamento[] equipamentos, Agendamento[] reservas) {
-        super(idEspaco, capacidade, localizacao, equipamentos, reservas);
+    SalaDeAula(int idEspaco, int capacidade, String localizacao, List<String> equipamentos) {
+        super(idEspaco, capacidade, localizacao, equipamentos);
     }
-    
+
+    @Override
+    public String getTipoEspaco() {
+        return "Sala de Aula";
+    }
 }

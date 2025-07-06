@@ -21,5 +21,10 @@ public class Professor extends Servidor {
     public String getCurso() {
         return curso;
     }
+
+    @Override
+    public String getTipoUsuario() {
+        return "Professor";
+    }
     
 }
