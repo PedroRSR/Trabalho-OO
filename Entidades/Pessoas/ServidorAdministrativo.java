@@ -1,4 +1,4 @@
-package entidades.pessoas;
+package Entidades.pessoas;
 
 public class ServidorAdministrativo extends Servidor {
     private String cargoAdministrativo,

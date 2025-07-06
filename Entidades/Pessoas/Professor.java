@@ -1,4 +1,4 @@
-package entidades.pessoas;
+package Entidades.pessoas;
 
 public class Professor extends Servidor {
     private String cargoAcademico,

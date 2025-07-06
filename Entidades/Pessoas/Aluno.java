@@ -1,4 +1,4 @@
-package entidades.pessoas;
+package Entidades.pessoas;
 
 public class Aluno extends Usuario{
     private String curso;

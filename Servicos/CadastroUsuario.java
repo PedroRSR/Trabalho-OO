@@ -3,7 +3,7 @@ package servicos;
 import java.util.ArrayList;
 import java.util.List;
 
-import entidades.pessoas.Usuario;
+import Entidades.pessoas.Usuario;
 
 public class CadastroUsuario {
 

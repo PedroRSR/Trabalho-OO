@@ -1,4 +1,4 @@
-package entidades.pessoas;
+package Entidades.pessoas;
 
 public abstract class Usuario {
     protected String nomeCompleto,

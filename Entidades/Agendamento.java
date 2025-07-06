@@ -1,9 +1,9 @@
-package entidades;
+package Entidades;
 
 import java.time.LocalDate;
 
-import entidades.espacos.EspacoFisico;
-import entidades.pessoas.Usuario;
+import Entidades.espacos.EspacoFisico;
+import Entidades.pessoas.Usuario;
 
 public class Agendamento {
     private Usuario usuario;
