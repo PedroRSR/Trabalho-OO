@@ -19,9 +19,18 @@ public class Agendamento {
     }
 
     public Usuario getUsuario() {
-        return usuario; }
+        return usuario; 
+    }
+
     public EspacoFisico getEspaco() { 
-        return espaco; }
-    public LocalDate getDataInicio() { return dataInicio; }
-    public LocalDate getDataFim() { return dataFim; }
+        return espaco; 
+    }
+
+    public LocalDate getDataInicio() { 
+        return dataInicio; 
+    }
+
+    public LocalDate getDataFim() { 
+        return dataFim; 
+    }
 }

@@ -26,5 +26,4 @@ public class Professor extends Servidor {
     public String getTipoUsuario() {
         return "Professor";
     }
-    
 }

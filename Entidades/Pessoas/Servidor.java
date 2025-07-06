@@ -11,5 +11,4 @@ public abstract class Servidor extends Usuario {
     public int getMatriculaInstitucional() {
         return matriculaInstitucional;
     }
-    
 }

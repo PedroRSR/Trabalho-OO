@@ -32,5 +32,4 @@ public abstract class EspacoFisico {
     }
 
     public abstract String getTipoEspaco();
-
 }
