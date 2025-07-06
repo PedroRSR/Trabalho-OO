@@ -1,20 +1,20 @@
-package entidades.pessoas;
+package entidades.usuarios;
 
 public abstract class Usuario {
-    protected String nomeCompleto,
+    protected String nome,
                      email,
                      telefone,
                      senha;
 
     public Usuario(String nome, String email, String telefone, String senha) {
-        this.nomeCompleto = nome;
+        this.nome = nome;
         this.email = email;
         this.telefone = telefone;
         this.senha = senha;
     }
 
-    public String getNomeCompleto() {
-        return nomeCompleto;
+    public String getNome() {
+        return nome;
     }
     
     public String getEmail() {

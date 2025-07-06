@@ -1,22 +1,22 @@
-package entidades.espacos;
+package entidades.espacosfisicos;
 
 import java.util.List;
 
 public abstract class EspacoFisico {
-    protected int idEspaco;
+    protected String nome;
     protected int capacidade;
     protected String localizacao;
     protected List<String> equipamentos;
 
-    public EspacoFisico(int idEspaco, int capacidade, String localizacao, List<String> equipamentos) {
-        this.idEspaco = idEspaco;
+    public EspacoFisico(String nome, int capacidade, String localizacao, List<String> equipamentos) {
+        this.nome = nome;
         this.capacidade = capacidade;
         this.localizacao = localizacao;
         this.equipamentos = equipamentos;
     }
 
-    public int getIdEspaco() {
-        return idEspaco;
+    public String getNome() {
+        return nome;
     }
 
     public int getCapacidade() {
