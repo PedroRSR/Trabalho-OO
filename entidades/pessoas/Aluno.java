@@ -1,8 +1,9 @@
-package Entidades;
+package entidades.pessoas;
+
 public class Aluno extends Usuario{
-    String curso;
-    int matricula;
-    int semMatricula;
+    private String curso;
+    private int matricula;
+    private int semMatricula;
 
     public Aluno(String nome, String email, String telefone, String senha, String curso, int matricula, int semMatricula) {
         super(nome, email, telefone, senha);
@@ -21,5 +22,10 @@ public class Aluno extends Usuario{
 
     public int getSemMatricula() {
         return semMatricula;
+    }
+
+    @Override
+    public String getTipoUsuario() {
+        return "Aluno";
     }
 }
