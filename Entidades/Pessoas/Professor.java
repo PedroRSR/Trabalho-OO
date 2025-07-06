@@ -10,10 +10,6 @@ public class Professor extends Servidor {
         this.curso = curso;
     }
 
-    public int getMatriculaInstitucional() {
-        return super.getMatriculaInstitucional();
-    }
-
     public String getCargoAcademico() {
         return cargoAcademico;
     }

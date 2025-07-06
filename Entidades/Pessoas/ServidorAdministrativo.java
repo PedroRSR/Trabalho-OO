@@ -10,10 +10,6 @@ public class ServidorAdministrativo extends Servidor {
         this.departamento = departamento;
     }
 
-    public int getMatriculaInstitucional() {
-        return super.getMatriculaInstitucional();
-    }
-
     public String getCargoAdministrativo() {
         return cargoAdministrativo;
     }
