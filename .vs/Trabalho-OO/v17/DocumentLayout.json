@@ -1,0 +1,64 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\isadora.oliveira\\code\\SistemaDeReservas\\Trabalho-OO\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\isadora.oliveira\\code\\SistemaDeReservas\\Trabalho-OO\\servicos\\GerenciadorAgendamento.java||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:servicos\\GerenciadorAgendamento.java||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\isadora.oliveira\\code\\SistemaDeReservas\\Trabalho-OO\\servicos\\GeradorRelatorios.java||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:servicos\\GeradorRelatorios.java||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 89,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GerenciadorAgendamento.java",
+              "DocumentMoniker": "C:\\Users\\isadora.oliveira\\code\\SistemaDeReservas\\Trabalho-OO\\servicos\\GerenciadorAgendamento.java",
+              "RelativeDocumentMoniker": "servicos\\GerenciadorAgendamento.java",
+              "ToolTip": "C:\\Users\\isadora.oliveira\\code\\SistemaDeReservas\\Trabalho-OO\\servicos\\GerenciadorAgendamento.java*",
+              "RelativeToolTip": "servicos\\GerenciadorAgendamento.java*",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001630|",
+              "WhenOpened": "2025-07-06T18:53:17.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GeradorRelatorios.java",
+              "DocumentMoniker": "C:\\Users\\isadora.oliveira\\code\\SistemaDeReservas\\Trabalho-OO\\servicos\\GeradorRelatorios.java",
+              "RelativeDocumentMoniker": "servicos\\GeradorRelatorios.java",
+              "ToolTip": "C:\\Users\\isadora.oliveira\\code\\SistemaDeReservas\\Trabalho-OO\\servicos\\GeradorRelatorios.java",
+              "RelativeToolTip": "servicos\\GeradorRelatorios.java",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001630|",
+              "WhenOpened": "2025-07-06T18:44:23.705Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 89,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
