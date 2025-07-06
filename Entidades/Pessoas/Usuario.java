@@ -1,4 +1,4 @@
-package Entidades.Pessoas;
+package entidades.pessoas;
 
 public class Usuario {
     private String nomeCompleto,

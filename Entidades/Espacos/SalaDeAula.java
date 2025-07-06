@@ -1,10 +1,10 @@
-package Entidades.Espacos;
+package entidades.espacos;
 
-import Entidades.Reservas.Reserva;
+import entidades.Agendamento;
 
 public class SalaDeAula extends EspacoFisico {
 
-    SalaDeAula(int idEspaco, int capacidade, String localizacao, Equipamento[] equipamentos, Reserva[] reservas) {
+    SalaDeAula(int idEspaco, int capacidade, String localizacao, Equipamento[] equipamentos, Agendamento[] reservas) {
         super(idEspaco, capacidade, localizacao, equipamentos, reservas);
     }
     

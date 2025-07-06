@@ -1,20 +1,20 @@
-package Entidades.Espacos;
+package entidades.espacos;
 
-import Entidades.Reservas.Reserva;
+import entidades.Agendamento;
 
 public class EspacoFisico {
     private int idEspaco,
                 capacidade;
     private String localizacao;
     private Equipamento[] equipamentos;
-    private Reserva[] reservas;
+    private Agendamento[] agendamentos;
 
-    public EspacoFisico(int idEspaco, int capacidade, String localizacao, Equipamento[] equipamentos, Reserva[] reservas) {
+    public EspacoFisico(int idEspaco, int capacidade, String localizacao, Equipamento[] equipamentos, Agendamento[] agendamentos) {
         this.idEspaco = idEspaco;
         this.capacidade = capacidade;
         this.localizacao = localizacao;
         this.equipamentos = equipamentos;
-        this.reservas = reservas;
+        this.agendamentos = agendamentos;
     }
 
     public int getIdEspaco() {
@@ -33,8 +33,8 @@ public class EspacoFisico {
         return equipamentos;
     }
 
-    public Reserva[] getReservas() {
-        return reservas;
+    public Agendamento[] getAgendamentos() {
+        return agendamentos;
     }
 
     public boolean estaDisponivel() {

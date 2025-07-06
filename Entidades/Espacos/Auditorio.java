@@ -1,11 +1,11 @@
-package Entidades.Espacos;
+package entidades.espacos;
 
-import Entidades.Reservas.Reserva;
+import entidades.Agendamento;
 
 public class Auditorio extends EspacoFisico {
 
-    Auditorio(int idEspaco, int capacidade, String localizacao, Equipamento[] equipamentos, Reserva[] reservas) {
-        super(idEspaco, capacidade, localizacao, equipamentos, reservas);
+    Auditorio(int idEspaco, int capacidade, String localizacao, Equipamento[] equipamentos, Agendamento[] agendamentos) {
+        super(idEspaco, capacidade, localizacao, equipamentos, agendamentos);
     }
     
 }

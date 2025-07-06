@@ -1,10 +1,6 @@
-package Principal;
+import javax.swing.JOptionPane;
 
-import Menus.MenuAlunos;
-import Menus.MenuPrincipal;
-import Menus.MenuProfessores;
-import Menus.MenuServidoresAdm;
-import Servicos.CadastroUsuario;
+import servicos.CadastroUsuario;
 
 public class Principal {
     static CadastroUsuario cadastroUsuario;
@@ -14,25 +10,25 @@ public class Principal {
         int opcao = 0;
 
         do {
-            opcao = MenuPrincipal.exibir();
+            
             switch (opcao) {
                 case 1:
-                    MenuAlunos.exibir();
+                    
                     break;
                 case 2:
-                    MenuProfessores.exibir();
+                    
                     break;
                 case 3:
-                    MenuServidoresAdm.exibir();
+                    
                     break;
                 case 4:
                     // MenuEspacosFisicos.exibir(); // Implementar MenuEspacosFisicos
                     break;
                 case 0:
-                    javax.swing.JOptionPane.showMessageDialog(null, "Saindo do sistema. Até logo!");
+                    JOptionPane.showMessageDialog(null, "Saindo do sistema. Até logo!");
                     break;
                 default:
-                    javax.swing.JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente.");
+                    JOptionPane.showMessageDialog(null, "Opção inválida. Tente novamente.");
                     opcao = -1;
                     break;
             }

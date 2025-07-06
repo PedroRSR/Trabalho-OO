@@ -1,4 +1,4 @@
-package Entidades.Espacos;
+package entidades.espacos;
 
 public class Equipamento {
     private String nome;

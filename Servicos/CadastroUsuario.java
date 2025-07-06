@@ -1,9 +1,9 @@
-package Servicos;
+package servicos;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import Entidades.Pessoas.Usuario;
+import entidades.pessoas.Usuario;
 
 public class CadastroUsuario {
 
