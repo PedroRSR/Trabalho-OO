@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -12,15 +11,35 @@ import entidades.Agendamento;
 import servicos.*;
 import excecoes.*;
 
+/**
+ * Classe principal da aplicação, responsável por gerenciar o ciclo de vida do programa
+ * e a interação com o usuário através de uma interface gráfica baseada em JOptionPane.
+ * Orquestra as chamadas para as diferentes classes de serviço.
+ */
 public class Principal {
 
+    /**
+     * Listas estáticas que funcionam como o "banco de dados" em memória da aplicação.
+     * Mantêm o estado do sistema durante a sua execução.
+     */
     private static List<Usuario> usuarios = new ArrayList<>();
     private static List<EspacoFisico> espacos = new ArrayList<>();
+
+     /**
+     * Instâncias estáticas dos serviços para que possam ser acessadas por todos os
+     * métodos da classe Principal. A lista de dependência é injetada no construtor.
+     */
     private static CadastroUsuario cadastroUsuario = new CadastroUsuario(usuarios);
     private static CadastroEspacoFisico cadastroEspaco = new CadastroEspacoFisico(espacos);
     private static GerenciadorAgendamento gerenciadorAgendamento = new GerenciadorAgendamento();
     private static GeradorRelatorios geradorRelatorios = new GeradorRelatorios(gerenciadorAgendamento.getAgendamentos());
 
+    /**
+     * Ponto de entrada da aplicação. Inicia um loop infinito que exibe o menu
+     * principal e direciona o fluxo para os métodos correspondentes.
+     *
+     * @param args Argumentos de linha de comando (não utilizados).
+     */
     public static void main(String[] args) {
         while (true) {
             String[] opcoes = { "Gerenciar Usuários", "Gerenciar Espaços Físicos", "Fazer Agendamento", "Gerar Relatórios", "Sair" };
@@ -47,6 +66,10 @@ public class Principal {
         }
     }
 
+    /**
+     * Exibe o sub-menu de gerenciamento de usuários, permitindo ao usuário
+     * escolher entre cadastrar, buscar ou deletar um usuário.
+     */
     private static void gerenciarUsuarios() {
         String[] opcoes = { "Cadastrar Novo Usuário", "Buscar Usuário", "Deletar Usuário", "Voltar" };
         int escolha = JOptionPane.showOptionDialog(null, "O que deseja fazer?", "Gerenciamento de Usuários",
@@ -67,6 +90,11 @@ public class Principal {
         }
     }
 
+    /**
+     * Controla o fluxo da interface para a busca de um usuário, permitindo a escolha
+     * entre buscar por matrícula ou por email e exibindo os detalhes do usuário encontrado.
+     * Trata internamente a exceção de usuário não encontrado.
+     */
     private static void buscarUsuario() {
 
         String[] opcoesBusca = { "Buscar por Matrícula", "Buscar por Email" };
@@ -123,6 +151,11 @@ public class Principal {
         }
     }
 
+    /**
+     * Guia o usuário através do processo de cadastro de um novo usuário (Aluno, Professor ou Servidor),
+     * coletando os dados e chamando o serviço de cadastro.
+     * Trata internamente exceções de validação.
+     */
     private static void cadastrarUsuario() {
         try {
             String tipo = JOptionPane.showInputDialog("Tipo de usuário (Aluno, Professor, Servidor):");
@@ -172,6 +205,10 @@ public class Principal {
         }
     }
 
+    /**
+     * Guia o usuário através do processo de cadastro de um novo espaço físico,
+     * coletando os dados e chamando o serviço de cadastro.
+     */
     private static void cadastrarEspacoFisico() {
         try {
             String tipo = JOptionPane.showInputDialog("Tipo de espaço (SalaAula, Laboratorio, SalaEstudo):");
@@ -216,6 +253,11 @@ public class Principal {
         }
     }
 
+     /**
+     * Controla o fluxo completo para que um usuário realize um agendamento.
+     * Envolve a busca do usuário e do espaço, a coleta de datas e a chamada ao serviço de agendamento.
+     * Trata internamente todas as exceções relacionadas ao processo.
+     */
     private static void fazerAgendamento() {
         try {
             if (usuarios.isEmpty()) 
@@ -279,6 +321,11 @@ public class Principal {
         }
     }
 
+    /**
+     * Controla o fluxo de deleção de um usuário, pedindo a matrícula e uma confirmação
+     * antes de chamar o serviço de exclusão.
+     * Trata internamente a exceção de usuário não encontrado.
+     */
     private static void deletarUsuario() {
         try {
             String matricula = JOptionPane.showInputDialog("Digite a matrícula do usuário a ser DELETADO:");
@@ -304,6 +351,10 @@ public class Principal {
         }
     }
 
+    /**
+     * Exibe o sub-menu de relatórios, permitindo ao usuário gerar relatórios
+     * por usuário ou por espaço em um determinado período.
+     */
     private static void gerarRelatorios() {
         String[] opcoes = { "Por Usuário", "Por Espaço", "Voltar" };
         int escolha = JOptionPane.showOptionDialog(null, "Escolha o tipo de relatório:", "Relatórios",
